@@ -1157,7 +1157,108 @@ Los argumentos de línea de comandos son útiles para personalizar la ejecución
 
 
 # <span style="color: #FF0000;">Clase #11 --- 01/12/2023 </span>
-P E N D I E N T E
+
+## Métodos útiles para Arraylist en Java
+
+### Operaciones Básicas
+
++ **Agregar Elementos**
+
+```java
+lista.add(elemento); // Añade al final de la lista
+```
+
++ **Obtener elementos**
+
+```java
+int elemento = lista.get(posición); // Obtiene el elemento en una posición específica
+```
+
+
++ **Obtener elementos**
+
+```java
+lista.remove(posición); // Elimina el elemento en una posición específica
+```
+
++ **Tamaño de la Lista**
+
+```java
+
+int tamaño = lista.size(); // Devuelve la cantidad de elementos en la lista
+```
+
++ **Limpiar la Lista**
+
+
+```java
+
+lista.clear(); // Elimina todos los elementos de la lista
+```
+
+### Operaciones Avanzadas
+
++ **Agregar Todos los Elementos de otra Lista**
+
+```java
+
+lista.addAll(otraLista); // Agrega todos los elementos de otraLista a lista
+```
+
++ **Reemplazar Elementos**
+
+```java
+
+lista.set(posición, nuevoElemento); // Reemplaza el elemento en una posición específica
+```
+
++ **Verificar la Existencia de un Elemento**
+
+```java
+
+boolean contiene = lista.contains(elemento); // Verifica si la lista contiene un elemento
+```
+
++ **Verificar si la Lista está Vacía**
+
+```java
+
+boolean vacía = lista.isEmpty(); // Verifica si la lista está vacía
+```
+
++ **Encontrar Posiciones**
+
+```java
+
+int posición = lista.indexOf(elemento); // Devuelve la primera posición del elemento
+int últimaPosición = lista.lastIndexOf(elemento); // Devuelve la última posición del elemento
+```
+
++ **Convertir a Array**
+
+```java
+
+Object[] array = lista.toArray(); // Convierte la lista en un array estándar
+```
+## Boxing && Unboxing en Java
+
+El boxing y unboxing son operaciones para convertir entre tipos primitivos y sus equivalentes en tipos de objetos en Java.
+
+### Boxing
+```java
+int enteroPrimitivo = 10;
+Integer enteroObjeto = enteroPrimitivo; // Convierte el int en Integer automáticamente
+```
+
+### Unboxing
+```java
+Integer enteroObjeto = new Integer(20);
+int enteroPrimitivo = enteroObjeto; // Convierte Integer en int automáticamente
+```
+
+Estas conversiones vienen a ser algo conveniente al momento de usar el lenguaje de programación java, ya que permiten operar con tipos primitivos como si fueran objetos mejorando de esta manera la legibilidad y la eficiencia del código.
+
+
 # <span style="color: #FF0000;">Clase #12 --- 05/12/2023 </span>
 
 ## P.O.O  - Repaso
@@ -1230,18 +1331,457 @@ Supongamos que se esta desarrollando un sistema de gestión de inventario para u
 
 
 # <span style="color: #FF0000;">Clase #13 --- 06/12/2023 </span>
-P E N D I E N T E (tarjeta de credito)
+## Gestión de una tarjeta de crédito
+
+### **Características de una Tarjeta**
+
+1. Análisis de Partes Relevantes
+
++ Número de Tarjeta.
++ Nombre del Titular.
++ Fecha de Expiración.
++ Código de Seguridad.
+
+### **Métodos Asociados**
+
+2. Funcionalidades
+
++ Constructor para crear la tarjeta con detalles dados.
++ Getters y Setters para acceder y modificar atributos.
++ Validación de la tarjeta para verificar su autenticidad.
++ Procesamiento de pagos simulado.
++ Verificación de fecha de expiración.
+
+### **Consideraciones de Seguridad**
+
+3. Protección de Datos
+
++ Encapsulación para controlar el acceso a los atributos.
++ Manejo seguro de información sensible.
+
+### **Estructura del Programa**
+
+4. Organización del Código
++ Clase Principal (main) para instanciar TarjetaCredito y utilizar sus métodos.
++ Clase TarjetaCredito definiendo la estructura y 
+funcionalidades de la tarjeta.
+
+### **Usabilidad y Mejoras Futuras**
+
+5. Facilidad de Uso
+
++ Nombres claros y descriptivos para los métodos
+Posible interfaz de usuario para interacciones amigables.
+
++ Identificación de funcionalidades adicionales para futuras actualizaciones.
+
++ Consideración del manejo de errores y excepciones.
+
+## Función Hash en Java
+
+### **Uso y Funcionamiento**
+
+1. Transformación de Datos
+
++ Conversión de información variable a valores de longitud fija.
+
++ Aplicación en estructuras de datos como HashMap, HashSet o HashTable.
+
+### **Propósito y Eficiencia**
+
+2. Generación de Identificadores Únicos
+
++ Asignación de claves únicas a datos almacenados.
+
++ Importancia de minimizar colisiones para optimizar búsqueda y recuperación.
+
+### **Implementación en Hash Table**
+
+3. Descripción de HashTable
+
++ Implementación segura para múltiples hilos (threads)
+
++ Almacenamiento de pares clave-valor con claves únicas y búsqueda eficiente.
+
+Ejemplo de Uso en Java
+
+```java
+import java.util.Hashtable;
+
+public class Main {
+    public static void main(String[] args) {
+        Hashtable<String, Integer> hashtable = new Hashtable<>();
+
+        hashtable.put("a", 1);
+        hashtable.put("b", 2);
+        hashtable.put("c", 3);
+
+        int valor = hashtable.get("b");
+        System.out.println("Valor asociado a 'b': " + valor);
+    }
+}
+```
+### Consideración: 
+
+Se debe tener en cuenta que, aunque HashTable ofrece sincronización para el acceso a los datos, puede afectar el rendimiento en comparación con implementaciones más modernas como HashMap o ConcurrentHashMap en versiones más recientes de Java, a menos que se requiera explícitamente esta sincronización para entornos con múltiples hilos.
+
 # <span style="color: #FF0000;">Clase #14 --- 07/12/2023 </span>
-P E N D I E N T E (SuperMaxi)
+
+## SuperMarket
+
+![Alt text](image-3.png)
+
+### Análisis
+En el contexto de un supermercado, es fundamental asegurar que la tarjeta de crédito se utilice en un entorno adecuado para realizar compras. Vamos a relacionarlo con un Super Mercado para este ejemplo.
+
+### Gestión de Productos
+- **Base de Datos de Productos:**
+  - Crear una lista detallada de productos (nombre, precio, cantidad disponible, etc.).
+- **Agregar/Eliminar Productos:**
+  - Permite la actualización dinámica de la base de datos de productos.
+
+### Proceso de Compra
+- **Carrito de Compras:**
+  - Capacidad para agregar y eliminar elementos.
+- **Cálculo del Total:**
+  - Realizar el cálculo preciso del costo total de los productos en el carrito.
+- **Procesamiento de Pago:**
+  - Utilización de la tarjeta de crédito para completar la transacción.
+
+### Interacción con la Tarjeta de Crédito
+- **Conexión con la Tarjeta:**
+  - Integración del sistema de la tarjeta de crédito para el pago.
+- **Validación de la Tarjeta:**
+  - Verificar la autenticidad de la tarjeta antes de realizar la transacción.
+
+### Interfaz de Usuario
+- **Pantalla de Selección de Productos:**
+  - Mostrar los productos disponibles para su compra.
+- **Carrito de Compras Visual:**
+  - Exhibir los productos agregados y el total del carrito.
+- **Pantalla de Pago:**
+  - Interfaz para ingresar los detalles de la tarjeta y completar la transacción.
+
+### Seguridad y Privacidad
+- **Cifrado de Datos:**
+  - Garantizar la seguridad de la información de la tarjeta.
+- **Protección de Datos Personales:**
+  - Asegurar la privacidad de la información del cliente.
+
+### Funcionalidades Adicionales
+- **Historial de Compras:**
+  - Almacenamiento de un registro de compras anteriores.
+- **Descuentos y Ofertas:**
+  - Implementación de ofertas especiales para productos específicos.
+
+### Flujo del Programa
+- **Clase Principal (Main):**
+  - Dirige el flujo de operaciones del supermercado.
+- **Clases y Métodos:**
+  - Organización del código en clases y métodos que manejen cada funcionalidad.
+
+### Manejo de Errores
+- **Validación de Entradas:**
+  - Verificación de la validez de los datos ingresados.
+- **Manejo de Excepciones:**
+  - Implementación de acciones para manejar errores inesperados.
+
 # <span style="color: #FF0000;">Clase #15 --- 12/12/2023 </span>
-REVISION DE POLIRETOS
+            REVISION DE POLIRETOS
 # <span style="color: #FF0000;">Clase #16 --- 13/12/2023 </span>
-REVISION Y BASE DE DATOS
+
+## Introducción a Bases de Datos
+
+### ¿Qué son bases de datos?
+Son sistemas organizados para almacenar, gestionar y recuperar información de manera estructurada. Consisten en conjuntos de datos interrelacionados que permiten realizar operaciones como agregar, actualizar, eliminar y consultar datos de manera eficiente.
+
+### ¿Para qué sirven?
+Las bases de datos son fundamentales en la gestión de información, facilitando la organización, búsqueda y manipulación de datos. Algunos de sus usos más comunes son:
+- Almacenamiento de datos estructurados, desde información de clientes hasta registros médicos y financieros.
+- Soporte para aplicaciones web y móviles, siendo la base para la mayoría de las aplicaciones modernas.
+- Gestión de operaciones empresariales en empresas grandes, abarcando áreas como recursos humanos, contabilidad y gestión de clientes.
+- Análisis de datos mediante herramientas de Business Intelligence para tomar decisiones estratégicas.
+- Almacenamiento y análisis de datos científicos y experimentales en campos como la medicina, ciencia y la investigación.
+
+### ¿Cómo se utilizan?
+Las bases de datos se emplean de diversas maneras:
+1. **Almacenamiento de datos:** Son como almacenes donde se guardan datos estructurados, desde información de clientes hasta registros médicos y financieros.
+2. **Aplicaciones web y móviles:** La mayoría de las aplicaciones que usamos dependen de bases de datos para almacenar y recuperar información.
+3. **Sistemas de gestión empresarial:** Grandes empresas utilizan bases de datos para gestionar sus operaciones diarias, desde recursos humanos hasta la gestión de la cadena de suministro.
+4. **Análisis y Business Intelligence:** Herramientas de BI utilizan bases de datos para realizar consultas complejas, generar informes y tomar decisiones estratégicas basadas en datos.
+5. **Aplicaciones científicas y de investigación:** Se utilizan para almacenar y analizar grandes cantidades de datos experimentales, médicos o científicos.
+6. **Almacenamiento de contenido multimedia:** También se emplean para guardar contenido multimedia como imágenes, vídeos, audio y documentos, permitiendo su fácil acceso y gestión.
+
+## Clusterización en Bases de Datos
+El clustering es una técnica usada en el análisis de datos y la minería de datos. Su objetivo principal es identificar patrones, estructuras o relaciones en los conjuntos de datos.
+
+### Funcionamiento del Clustering
+- **Identificación de similitudes:** Los algoritmos de clustering examinan similitudes y diferencias entre los datos para agruparlos en clusters.
+- **Asignación de grupos:** Los elementos dentro de un mismo cluster son más similares entre sí que con aquellos en otros clusters.
+
+### Aplicaciones del Clustering
+- **Segmentación de clientes:** En marketing, se emplea para agrupar clientes con preferencias similares para estrategias específicas.
+- **Organización de grandes conjuntos de datos:** Ayuda a entender la estructura interna de datos masivos.
+- **Identificación de patrones en imágenes o textos:** Se utiliza para categorizar y encontrar similitudes en datos visuales o textuales.
+- **Compresión de datos:** Reduce la complejidad manteniendo la información más relevante.
+
+## Diagrama de Caso de Uso
+
+### ¿Qué es un diagrama de caso de uso?
+El diagrama de caso de uso es una representación visual de las interacciones entre un sistema y sus actores. Se centra en la funcionalidad que ofrece un sistema desde la perspectiva de los usuarios o actores involucrados.
+
+### Componentes de un diagrama de caso de uso:
+- **Actores:** Representan roles o entidades externas que interactúan con el sistema.
+- **Casos de Uso:** Son las acciones o funcionalidades que ofrece el sistema a los actores.
+
+### Utilidad del diagrama de caso de uso:
+- **Visualización de interacciones:** Permite comprender cómo interactúan los usuarios con el sistema.
+- **Definición de requisitos:** Ayuda a identificar y definir los requisitos funcionales del sistema.
+- **Diseño inicial del sistema:** Facilita la planificación inicial de la arquitectura del sistema.
+
+### Ejemplo de uso:
+![Alt text](image-4.png)
+## Diagrama de Clases
+
+### ¿Qué es un diagrama de clases?
+El diagrama de clases es una representación visual de las clases, interfaces y relaciones entre ellas en un sistema orientado a objetos.
+
+### Componentes de un diagrama de clases:
+- **Clases:** Representan entidades con atributos y métodos.
+- **Atributos:** Características o propiedades de una clase.
+- **Métodos:** Funciones o acciones que una clase puede realizar.
+- **Relaciones:** Asociaciones entre clases que indican interacciones y dependencias.
+
+### Utilidad del diagrama de clases:
+- **Modelado de la estructura del sistema:** Describe la estructura estática de un sistema y sus relaciones.
+- **Análisis y diseño orientado a objetos:** Ayuda a entender y planificar la arquitectura del sistema.
+- **Facilita la comunicación entre desarrolladores:** Proporciona una representación visual común del sistema.
+
+### Ejemplo de uso:
+![Alt text](image-5.png)
 # <span style="color: #FF0000;">Clase #17 --- 14/12/2023 </span>
-FALTAMOS Y TOCA REVISAR EL VIDEO XD
+
+## Herencia en Programación Orientada a Objetos
+
+### ¿Qué es la herencia?
+La herencia es un principio de la programación orientada a objetos que permite la creación de nuevas clases basadas en clases existentes. La clase existente se denomina superclase o clase base, y las nuevas clases se llaman subclases o clases derivadas.
+
+### Ejemplo de Herencia con `Cliente`, `PersonaNatural` y `PersonaJuridica`:
+En este caso, `Cliente` sería la superclase que contiene atributos y métodos comunes a ambos tipos de clientes, mientras que `PersonaNatural` y `PersonaJuridica` serían subclases que heredan esos atributos y métodos de la superclase `Cliente`.
+
+### Estructura de Clases:
+
+### Superclase: `Cliente`
+La clase `Cliente` contendría atributos y métodos generales compartidos por las subclases.
+
+### Subclase: `PersonaNatural`
+La clase `PersonaNatural` heredaría atributos y métodos de la superclase `Cliente` y podría agregar o modificar características específicas para personas naturales.
+
+### Subclase: `PersonaJuridica`
+La clase `PersonaJuridica` también heredaría de `Cliente` y tendría la capacidad de modificar o añadir atributos y métodos propios, adaptados a las características de personas jurídicas.
+
+La herencia en este contexto  permite reutilizar código, promoviendo la modularidad y facilitando la extensión del sistema al agregar nuevas clases.
+
 # <span style="color: #FF0000;">Clase #18 --- 15/12/2023 </span>
-Ultima clase del viernes
-# <span style="color: #FF0000;">Clase #19 --- 19/12/2023 </span>
+## Diagramas UML (Lenguaje de Modelado Unificado)
+
+![Alt text](image-6.png)
+#### ¿Qué es UML?
+UML es el Lenguaje de Modelado Unificado, un estándar de la industria para visualizar, especificar, construir y documentar sistemas de software orientados a objetos. Proporciona un conjunto de notaciones gráficas para representar el diseño de sistemas de software.
+
+#### Tipos de Diagramas UML más comunes:
+
+#### Diagrama de Caso de Uso
+Representa la interacción entre actores externos y un sistema. Se centra en cómo los usuarios interactúan con el sistema y qué funcionalidades ofrece el sistema.
+
+#### Diagrama de Clases
+Muestra la estructura estática del sistema, las clases, sus atributos, métodos y relaciones entre ellas.
+
+#### Diagrama de Secuencia
+Describe cómo diferentes objetos en un sistema interactúan a lo largo del tiempo, mostrando la secuencia de mensajes intercambiados entre objetos.
+
+#### Utilidad de los Diagramas UML:
+
+- **Visualización del sistema:** Proporcionan una representación visual del diseño del sistema.
+- **Comunicación:** Facilitan la comunicación entre equipos de desarrollo, clientes y stakeholders.
+- **Documentación:** Sirven como documentación detallada del diseño del sistema.
+- **Análisis y diseño:** Ayudan en la identificación de requisitos y planificación de la arquitectura del sistema.
+
+#### Ventajas de UML:
+- **Estándar universal:** Es un estándar reconocido internacionalmente.
+- **Flexibilidad:** Permite la representación de sistemas complejos.
+- **Aplicabilidad:** Se puede utilizar en diferentes etapas del ciclo de vida del software.
+
+#### Limitaciones de UML:
+- **Complejidad:** Puede volverse complejo en sistemas grandes.
+- **Interpretación subjetiva:** La interpretación de los diagramas puede variar entre usuarios.
+- **Dificultad en la curva de aprendizaje:** Requiere tiempo para dominar completamente.
+
+Los Diagramas UML son herramientas poderosas para la visualización, diseño y documentación de sistemas de software.
+
+# <span style="color: #FF0000;">Clase #19 --- 20/12/2023 </span>
+
+## Herencia en UML: Relaciones "extends" e "include"
+
+### `extends`: Relación de Extensión
+- **Significado:** Indica una relación opcional entre casos de uso, donde un caso de uso extiende otro caso de uso base.
+- **Cuándo se utiliza:** Para escenarios que se activan bajo ciertas condiciones o en situaciones específicas que no siempre ocurren.
+- **Representación en UML:** Se dibuja con una flecha punteada desde el caso de uso que extiende hacia el caso de uso base.
+- **Ejemplos:**
+  - **Caso de Uso Base:** `Realizar Pedido`
+  - **Caso de Uso Extendido:** `Agregar Artículo al Pedido`
+  - **Descripción:** El caso de uso "Agregar Artículo al Pedido" extiende "Realizar Pedido" cuando el cliente solicita agregar un artículo adicional durante el proceso de compra.
+
+
+  ![Alt text](image-7.png)
+
+
+### `include`: Relación de Inclusión
+- **Significado:** Indica una relación obligatoria donde un caso de uso incluye otro caso de uso en su flujo principal.
+- **Cuándo se utiliza:** Para funcionalidades que siempre están presentes como parte del flujo principal.
+- **Representación en UML:** Se muestra con una flecha sólida desde el caso de uso principal hacia el caso de uso incluido.
+- **Ejemplos:**
+  - **Caso de Uso Principal:** `Realizar Pedido`
+  - **Caso de Uso Incluido:** `Procesar Pago`
+  - **Descripción:** El caso de uso "Procesar Pago" está incluido en "Realizar Pedido", ya que el pago es una parte esencial de completar el pedido y siempre ocurre durante el proceso de compra.
+
+  ![Alt text](image-8.png)
+
+# <span style="color: #FF0000;">Clase #20 --- 02/01/2024 </span>
+
+        REVISION DE LA PRUEBA ESCRITA
+
+# <span style="color: #FF0000;">Clase #21 --- 03/01/2024 </span>
+## Interfaces en Programación
+
+Las interfaces en programación son un mecanismo que define un conjunto de métodos que una clase debe implementar. Sirven como contratos que especifican qué métodos deben ser implementados por cualquier clase que las utilice.
+
+### Conceptos clave sobre interfaces:
+- **Definición de Métodos:** Las interfaces definen métodos que las clases deben implementar, pero no incluyen la implementación de esos métodos.
+- **Abstracción y Polimorfismo:** Permiten la abstracción y el polimorfismo, ya que una clase puede implementar múltiples interfaces.
+- **No pueden contener implementaciones:** Los métodos de una interfaz no pueden tener cuerpos definidos, solo su firma.
+- **Pueden contener constantes:** Pueden tener constantes que las clases que las implementan deben adherir.
+
+### Ejemplo de Interfaces en Java
+
+#### Definición de una interfaz en Java:
+```java
+// Definición de la interfaz
+public interface Animal {
+    void hacerSonido();
+    void comer();
+}
+```
+```java
+// Implementación de la interfaz en una clase
+public class Perro implements Animal {
+    public void hacerSonido() {
+        System.out.println("El perro ladra");
+    }
+    public void comer() {
+        System.out.println("El perro come comida para perros");
+    }
+}
+```
+## Clases Abstractas en Programación
+
+Las clases abstractas en programación son clases que no se pueden instanciar directamente y pueden contener métodos abstractos, es decir, métodos que se declaran pero no se implementan en la clase abstracta. Se utilizan como plantillas para otras clases y pueden contener métodos implementados y métodos abstractos.
+
+### Conceptos clave sobre clases abstractas:
+- **No se pueden instanciar:** No se pueden crear objetos directamente a partir de clases abstractas.
+- **Pueden contener métodos implementados:** Pueden tener métodos con implementaciones completas.
+- **Pueden contener métodos abstractos:** Pueden tener métodos sin implementación, dejando que las clases hijas proporcionen su implementación.
+- **Pueden tener atributos y métodos regulares:** Además de métodos abstractos, pueden contener métodos y atributos regulares.
+
+### Ejemplo de Clase Abstracta en Java
+
+#### Definición de una clase abstracta en Java:
+```java
+public abstract class Vehiculo {
+    // Atributos
+    private String marca;
+    
+    // Constructor
+    public Vehiculo(String marca) {
+        this.marca = marca;
+    }
+    
+    // Método con implementación
+    public void conducir() {
+        System.out.println("Conduciendo el vehículo...");
+    }
+    
+    // Método abstracto
+    public abstract void detener();
+}
+```
+Implementacion de una clase que extiende la clase abstracta
+
+```java
+public class Automovil extends Vehiculo {
+    // Constructor
+    public Automovil(String marca) {
+        super(marca);
+    }
+    
+    // Implementación del método abstracto
+    public void detener() {
+        System.out.println("El automóvil se detuvo.");
+    }
+}
+
+```
+# <span style="color: #FF0000;">Clase #22 --- 04/01/2024 </span>
+
+                
+                EXAMEN BIMESTRAL
+
+
+# <span style="color: #FF0000;">Clase #23 --- 05/01/2024 </span>
+
+## Cardinalidad
+
+### Cardinalidad en Diagramas UML
+
+En los diagramas de clases de UML, la cardinalidad se representa utilizando notaciones específicas para indicar la cantidad de instancias asociadas entre dos entidades:
+
+- **1**: Indica una relación de exactamente una instancia.
+- **0..1**: Indica una relación opcional de como máximo una instancia.
+- **0..*** o **1..***: Indica una relación opcional de una a muchas instancias.
+- **1..1**: Indica una relación de exactamente una instancia en ambos lados de la relación.
+- **0..n** o **1..n**: Indica una relación de cero a muchas instancias.
+
+### Consideraciones
+
+1. **Claridad en la Relación:**
+   - **Explicar la relación:** La cardinalidad debe reflejar claramente la relación entre las clases. Debe ser fácil de entender para cualquier persona que vea el diagrama.
+
+2. **Comprensión de la Asociación:**
+   - **Direccionalidad:** La dirección de la asociación es importante. Asegúrate de definir correctamente qué clase está asociada a qué clase en una relación.
+
+3. **Evitar Ambigüedades:**
+   - **Cardinalidad Precisa:** Evita ambigüedades. Especifica con claridad si la relación es de uno a uno, uno a muchos o muchos a muchos.
+
+4. **Relaciones Complejas:**
+   - **Relaciones N-arias:** En relaciones complejas que involucran más de dos clases, considera el uso de notaciones más detalladas o fragmentos de diagramas para mantener la claridad.
+
+5. **Revisión y Validación:**
+   - **Revisión por Pares:** Es útil tener a alguien más revisando los diagramas para asegurar que la cardinalidad represente correctamente la relación entre las clases.
+   - **Validación con Requisitos:** Asegúrate de que la cardinalidad cumpla con los requisitos del sistema y refleje con precisión la lógica del dominio.
+
+6. **Cambios en la Cardinalidad:**
+   - **Flexibilidad:** Los diagramas UML pueden cambiar a medida que evoluciona el diseño del sistema. Mantén la flexibilidad para ajustar la cardinalidad si las relaciones entre las clases cambian durante el desarrollo.
+
+
+### Ejemplo de Cardinalidad en UML
+![Alt text](image-9.png)
+
+# <span style="color: #FF0000;">Clase #24 --- 09/01/2024 </span>
+
+            PRESENTACIÓN DE PROYECTOS
+
+
+
 
 
 
